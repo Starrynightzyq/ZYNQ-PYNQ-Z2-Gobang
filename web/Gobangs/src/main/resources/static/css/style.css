@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #222125;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .content {
+    display: flex;
+}
+
+.main .content canvas {
+    display: block;
+    border: #53381a 3px solid;
+}
+
+.main .content .options {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main .content .options button {
+    padding: 6px 12px;
+    color: #fff;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    transition: background .3s ease;
+}
+
+.main .content .options button.test {
+    background-color: #f93;
+}
+
+.main .content .options button.test:hover {
+    background-color: #fc6;
+}
+
+.main .content .options button.restart {
+    background-color: #096;
+}
+
+.main .content .options button.restart:hover {
+    background-color: #3c9;
+}
+
+.main .content .options button.regret {
+    background-color: #f66;
+}
+
+.main .content .options button.regret:hover {
+    background-color: #f99;
+}
+
+.main .content .options button.tip {
+    background-color: #09c;
+}
+
+.main .content .options button.tip:hover {
+    background-color: #3cf;
+}
+
+.main .content .player {
+    width: 120px;
+    height: 450px;
+    margin-left: 80px;
+}
+
+.main .content .player ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main .content .player li {
+    width: 120px;
+    height: 60px;
+    padding-left: 20px;
+    color: #c1c1c1;
+    font-size: 18px;
+    line-height: 60px;
+    cursor: default;
+    border-radius: 15px;
+    /*background-color: #eee;*/
+    box-sizing: border-box;
+}
+
+.main .content .player li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    border-radius: 10px;
+    box-shadow: 2px 1px 3px #4D4D5A;
+    display: inline-block;
+    margin: -2px 8px 0 0;
+}
+
+.main .content .player li:nth-of-type(1)::before {
+    background-color: #000;
+}
+
+.main .content .player li:nth-of-type(2)::before {
+    background-color: #fff;
+}
+
+.main .content .player li.active {
+    background-color: #53381a;
+    box-shadow: 0 0 5px #4D4D5A inset;
+}

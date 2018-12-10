@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER matrix_keyboard
+	OPTION supported_peripherals = (matrix_keyboard);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = matrix_keyboard;
+END DRIVER

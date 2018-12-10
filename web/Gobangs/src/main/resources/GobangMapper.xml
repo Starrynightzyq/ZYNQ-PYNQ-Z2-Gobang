@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobang.demo.mapper.GobangMapper" >
+  <resultMap id="BaseResultMap" type="com.gobang.demo.dao.Gobang" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="color" property="color" jdbcType="INTEGER" />
+    <result column="coordinateY" property="coordinatey" jdbcType="INTEGER" />
+    <result column="coordinateX" property="coordinatex" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, status, color, coordinateY, coordinateX, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gobang
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStatus" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from gobang
+    where status = #{status,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+          select *
+        <include refid="Base_Column_List" />
+          from gobang
+  </select>
+  <select id="count" resultType="java.lang.Integer">
+          select count(*)
+          from gobang
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gobang
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gobang.demo.dao.Gobang" >
+    insert into gobang (status, color, coordinateY, 
+      coordinateX, createTime)
+    values (#{status,jdbcType=INTEGER}, #{color,jdbcType=INTEGER}, #{coordinatey,jdbcType=INTEGER}, 
+      #{coordinatex,jdbcType=INTEGER}, #{createtime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gobang.demo.dao.Gobang" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into gobang
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="coordinatey != null" >
+        coordinateY,
+      </if>
+      <if test="coordinatex != null" >
+        coordinateX,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=INTEGER},
+      </if>
+      <if test="coordinatey != null" >
+        #{coordinatey,jdbcType=INTEGER},
+      </if>
+      <if test="coordinatex != null" >
+        #{coordinatex,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update gobang
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.color != null" >
+        color = #{record.color,jdbcType=INTEGER},
+      </if>
+      <if test="record.coordinatey != null" >
+        coordinateY = #{record.coordinatey,jdbcType=INTEGER},
+      </if>
+      <if test="record.coordinatex != null" >
+        coordinateX = #{record.coordinatex,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update gobang
+    set id = #{record.id,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      color = #{record.color,jdbcType=INTEGER},
+      coordinateY = #{record.coordinatey,jdbcType=INTEGER},
+      coordinateX = #{record.coordinatex,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gobang.demo.dao.Gobang" >
+    update gobang
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=INTEGER},
+      </if>
+      <if test="coordinatey != null" >
+        coordinateY = #{coordinatey,jdbcType=INTEGER},
+      </if>
+      <if test="coordinatex != null" >
+        coordinateX = #{coordinatex,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gobang.demo.dao.Gobang" >
+    update gobang
+    set status = #{status,jdbcType=INTEGER},
+      color = #{color,jdbcType=INTEGER},
+      coordinateY = #{coordinatey,jdbcType=INTEGER},
+      coordinateX = #{coordinatex,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="deleteAll" >
+        truncate gobang
+    </update>
+</mapper>

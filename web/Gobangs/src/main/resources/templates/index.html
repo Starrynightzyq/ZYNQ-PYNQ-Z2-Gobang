@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<title>五子棋</title>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/BeAlert.css">
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="chess">
+                <canvas id="chess" width="450px" height="450px"></canvas>
+                <div id="logs"></div>
+                <div class="options">
+                    <button id="test" class="test" type="button">测试</button>
+                    <button type="button" id="restart" class="restart">重新开始</button>
+                    <button type="button" id="previous" class="regret">悔棋</button>
+                    <button type="button" id="mention" class="tip">提示</button>
+                </div>
+            </div>
+            <div class="player">
+                <ul>
+                    <li class="active">黑色方</li>
+                    <li>白色方</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--引入jquery-->
+    <script type="text/javascript" src="static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="static/js/option.js"></script>
+    <script type="text/javascript" src="static/js/chess.js"></script>
+    <script type="text/javascript" src="static/js/websocket.js"></script>
+
+    <!--<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>-->
+    <!--引入alert美化轮子-->
+    <script type="text/javascript" src="static/js/BeAlert.js"></script>
+</body>
+</html>

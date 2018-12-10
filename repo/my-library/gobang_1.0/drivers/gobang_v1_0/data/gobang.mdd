@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER gobang
+	OPTION supported_peripherals = (gobang);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = gobang;
+END DRIVER

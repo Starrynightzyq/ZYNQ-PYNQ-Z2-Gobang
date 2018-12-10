@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请选择您的游戏模式</title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/fonts/feather/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/component.css" />
+    <!--切换必要组件-->
+    <script src="static/js/custom.js"></script>
+</head>
+<body>
+<div class="container">
+    <div style="text-align:center;clear:both;"></div>
+    <div class="main">
+        <div class="mainContent">
+            <section class="slider">
+                <div class="slide slide--current" data-content="content-1">
+                    <div class="slide__mover">
+                        <div class="zoomer flex-center">
+                            <div class="preview">
+                                <img src="static/img/TwoMan.jpg" alt="AI vs AI" />
+                                <div class="zoomer__area zoomer__area--size-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="slide__title"><span>开发者测试专用</span> AI vs AI</h2>
+                </div>
+                <div class="slide" data-content="content-2">
+                    <div class="slide__mover">
+                        <div class="zoomer flex-center">
+                            <div class="preview">
+                                <img src="static/img/AIhard.jpg" alt="人机一般模式" />
+                                <div class="zoomer__area zoomer__area--size-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="slide__title"><span>大神专用通道</span> 人机对战</h2>
+                </div>
+                <div class="slide" data-content="content-3">
+                    <div class="slide__mover">
+                        <div class="zoomer flex-center">
+                            <div class="preview">
+                                <img src="static/img/AIsimple.png" alt="人人对战模式" />
+                                <div class="zoomer__area zoomer__area--size-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="slide__title"><span>和小伙伴一起玩耍吧</span> 人人对战</h2>
+                </div>
+                <div class="gamer">
+                    <div>请选择棋方</div>
+                    <ul>
+                        <li class="active" value="0">黑色方</li>
+                        <li value="1">白色方</li>
+                    </ul>
+                </div>
+                <nav class="slider__nav">
+                    <button class="button button--nav-prev" onclick="prev()"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
+                    <button class="button" onclick="start()"><i class="icon icon--zoom"></i><span class="text-hidden">View details</span></button>
+                    <button class="button button--nav-next" onclick="next()"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
+                </nav>
+            </section>
+        </div>
+    </div>
+    <div style="text-align:center;clear:both;">
+    </div>
+</div>
+
+<script type="text/javascript" src="static/js/classie.js"></script>
+<!--切换作用-->
+<script type="text/javascript" src="static/js/dynamics.js"></script>
+<!--全局变量flag引入-->
+<script type="text/javascript" src="static/js/option.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+<!--Websocket组件-->
+<script type="text/javascript" src="static/js/Dependency.js"></script>
+
+</body>
+</html>

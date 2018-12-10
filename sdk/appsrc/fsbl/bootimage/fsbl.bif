@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]C:\MyFiles\FPGA_COMPETITION\project\gobang_zynq_HLS\gobang_zynq.sdk\fsbl\Debug\fsbl.elf
+	C:\MyFiles\FPGA_COMPETITION\project\gobang_zynq_HLS\gobang_zynq.sdk\design_gobang_wrapper_hw_platform_0\design_gobang_wrapper.bit
+	C:\MyFiles\FPGA_COMPETITION\project\gobang_zynq_HLS\gobang_zynq.sdk\game_demo\Debug\game_demo.elf
+}
