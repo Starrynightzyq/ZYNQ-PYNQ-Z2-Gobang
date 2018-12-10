@@ -1,0 +1,3 @@
+[submodule "digilent-vivado-scripts"]
+	path = digilent-vivado-scripts
+	url = https://github.com/artvvb/digilent-vivado-scripts
